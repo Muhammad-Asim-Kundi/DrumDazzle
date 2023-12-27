@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>JS Drum Kit</title>
+    <title>DrumDazzle</title>
 </head>
 <body>
     
@@ -66,27 +66,6 @@
     <audio data-key="75" src="sounds/dark-tom.wav"></audio>
     <audio data-key="76" src="sounds/wet-808-long-hi-hat.wav"></audio>
 
-<script>
-    function playSound(e){
-        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
-        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
-        console.log(audio);
-        if(!audio) return; //stop the function from running all together
-
-        audio.currentTime = 0 ; // revind to the start
-        audio.play();
-        key.classList.add('playing');
-    }
-
-    function removeTransition(e){
-        if(e.propertyName !== 'transform') return; //skip if it is not a transform
-        this.classList.remove('playing');
-    }
-
-    const keys = document.querySelectorAll('.key');
-    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-    window.addEventListener('keydown', playSound) 
-</script>
-
 </body>
+    <script src="JS/mian.js"></script>
 </html>
